@@ -20,6 +20,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def updated
+    @post = Post.find(params[:id])
+
+    @post.update(post_params)
+
+    redirect_to posts_path, notice: "Update Success"
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
 
   private
 
